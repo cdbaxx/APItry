@@ -1,13 +1,6 @@
 from fastapi import FastAPI
+from app.api.health import router as health_router
 
-app = FastAPI()
+app=FastAPI()
 
-
-@app.get("/")
-def root():
-    return {"message": "AI Knowledge Assistant is running!"}
-
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
+app.include_router(health_router)
